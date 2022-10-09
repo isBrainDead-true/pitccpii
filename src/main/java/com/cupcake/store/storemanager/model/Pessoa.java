@@ -1,14 +1,28 @@
 package com.cupcake.store.storemanager.model;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
 public class Pessoa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
     private String nome;
     private String telefone;
     private String email;
     private Date dataDeNascimento;
     private String rg;
     private String cpf;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Pessoa(){
 
@@ -20,6 +34,13 @@ public class Pessoa {
         this.email = email;
         this.dataDeNascimento = dataDeNascimento;
         this.rg = rg;
+        this.cpf = cpf;
+    }
+
+    public Pessoa(String nome, String telefone, String email, String cpf) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
         this.cpf = cpf;
     }
 
