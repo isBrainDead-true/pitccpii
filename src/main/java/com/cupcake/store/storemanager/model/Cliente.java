@@ -1,12 +1,19 @@
 package com.cupcake.store.storemanager.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cliente extends Pessoa{
 
     @Id
@@ -14,40 +21,11 @@ public class Cliente extends Pessoa{
     private Long id;
     private String numeroCliente;
 
-    public Cliente(Long id, String numeroCliente) {
-        this.id = id;
-        this.numeroCliente = numeroCliente;
-    }
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Pedido> pedidos;
 
-    public Cliente(){
+    @Embedded
+    private Endereco endereco;
 
-    }
-
-    public Cliente(String nome, String telefone, String email, Date dataDeNascimento, String rg, String cpf, Long id, String numeroCliente) {
-        super(nome, telefone, email, dataDeNascimento, rg, cpf);
-        this.id = id;
-        this.numeroCliente = numeroCliente;
-    }
-
-    public Cliente(String nome, String telefone, String email, String cpf, Long id, String numeroCliente) {
-        super(nome, telefone, email, cpf);
-        this.id = id;
-        this.numeroCliente = numeroCliente;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNumeroCliente() {
-        return numeroCliente;
-    }
-
-    public void setNumeroCliente(String numeroCliente) {
-        this.numeroCliente = numeroCliente;
-    }
 }

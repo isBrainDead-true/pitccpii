@@ -1,17 +1,14 @@
 package com.cupcake.store.storemanager.model;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+
+@Entity
+@Data
+@AllArgsConstructor
 public class RecursosHumanos extends Funcionario{
 
-    public RecursosHumanos() {
-    }
-
-    public RecursosHumanos(Long id, String matricula, Endereco endereco) {
-        super(id, matricula, endereco);
-    }
-
-    public RecursosHumanos(Long id, String nome, String telefone, String email, Date dataDeNascimento, String rg, String cpf, String matricula, Endereco endereco) {
-        super(id, nome, telefone, email, dataDeNascimento, rg, cpf, matricula, endereco);
-    }
 }

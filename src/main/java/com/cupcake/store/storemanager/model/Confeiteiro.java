@@ -1,19 +1,16 @@
 package com.cupcake.store.storemanager.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
 import java.util.Date;
 
+@Entity
+@Data
+@AllArgsConstructor
 public class Confeiteiro extends Funcionario{
 
-    public Confeiteiro() {
-
-    }
-
-    public Confeiteiro(Long id, String matricula, Endereco endereco) {
-        super(id, matricula, endereco);
-    }
-
-    public Confeiteiro(Long id, String nome, String telefone, String email, Date dataDeNascimento, String rg, String cpf, String matricula, Endereco endereco) {
-        super(id, nome, telefone, email, dataDeNascimento, rg, cpf, matricula, endereco);
-    }
 }
 
