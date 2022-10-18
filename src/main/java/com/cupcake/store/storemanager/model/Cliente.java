@@ -28,4 +28,6 @@ public class Cliente extends Pessoa{
     @Embedded
     private Endereco endereco;
 
+    private String senha;
+
 }

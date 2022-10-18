@@ -35,7 +35,7 @@ public class ClienteController {
     }
 
     @GetMapping("get/{id}")
-    public ResponseEntity getClient(@PathVariable("id") Long id){
+    public ResponseEntity getClientById(@PathVariable("id") Long id){
         Optional<Cliente> clienteEncontrado = this.clienteService.getClienteById(id);
         return new ResponseEntity<>(clienteEncontrado, HttpStatus.OK);
     }
@@ -51,11 +51,4 @@ public class ClienteController {
         Cliente clienteAtualizado = clienteService.updateCliente(cliente);
         return new ResponseEntity<>(clienteAtualizado, HttpStatus.OK);
     }
-
-    public ResponseEntity getClienteById(@RequestParam("id") Long id){
-        Optional<Cliente> clienteEncontrado = this.clienteService.getClienteById(id);
-        return new ResponseEntity<>(clienteEncontrado, HttpStatus.OK);
-    }
-
-
 }
