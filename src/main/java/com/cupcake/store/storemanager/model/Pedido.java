@@ -18,13 +18,8 @@ public class Pedido {
     private Long id;
     @ManyToOne()
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private UserApp cliente;
 
-    @OneToOne
-    private Atendente atendente;
-
-    @OneToOne
-    private Gerente gerente;
     private Date dataDaCompra;
 
 

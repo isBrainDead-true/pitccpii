@@ -4,19 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
 
 @Embeddable
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Endereco {
 
     private String cep;
     private String rua;
-    private String numeroDaCasa;
-    private String cidade;
-    private String estado;
-    private String pais;
-
+    private String bairro;
+    private String numero;
 }
